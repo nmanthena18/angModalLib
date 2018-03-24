@@ -4,7 +4,20 @@
     <p>{{bodyText}}</p>
     <button (click)="openModal('custom-modal-1')">Open Modal 1</button>
 </div>
-<sc-modal id="custom-modal-1">
+<sc-modal id="custom-modal-1" #modal>
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" />
+            </p>
+            <button (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</sc-modal>
+
+<sc-modal id="custom-modal-2">
     <div class="modal">
         <div class="modal-body">
             <h1>A Custom Modal!</h1>

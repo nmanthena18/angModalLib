@@ -16,16 +16,20 @@ export class ModalService {
 }
 
 open(id: string) {
-    // open modal specified by id
-    let index = this.modals.indexOf(id);
-    let modal = this.modals[index];
-    modal.open();
+    var modal 
+    this.modals.forEach( (item)=>{
+        if(item.id == id) modal =  item;
+    });
+    modal.ele.nativeElement.style.display = 'block';
 }
 
 close(id: string) {
-    // close modal specified by id
-    let index = this.modals.indexOf(id)
-    let modal = this.modals[index];
-    modal.close();
+    var modal 
+    this.modals.forEach( (item)=>{
+        console.log(id)
+        if(item.id == id) modal =  item;
+    });
+    modal.ele.nativeElement.style.display = 'none';
 }
+
 }

@@ -44,11 +44,12 @@ export class ModalComponent implements OnInit, OnDestroy  {
 
   openModal(id: string){
     this.ms.open(id);
-    }
+  }
 
-    closeModal(id: string){
+  closeModal(id: string){
+      console.log(id)
         this.ms.close(id);
-    }
+  }
   
   ngOnDestroy(){
     this.ms.remove(this.id);
