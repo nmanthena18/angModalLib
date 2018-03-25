@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { ModalService } from './sc-modal/modal.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from './sc-modal/modal.component';
@@ -12,11 +11,8 @@ export class AppComponent implements OnInit {
   private ele : HTMLElement;
   @ViewChild("modal") modal: ModalComponent;
   constructor(
-    private el: ElementRef,
     private ms:ModalService
-  ){
-    this.ele = el.nativeElement
-    
+  ){    
     
   }
   openModal(id){
@@ -28,9 +24,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    // let element = this.ele.querySelector('#custom-modal-1');
-    // let model = new ModalComponent(this.ms, element );
-    // console.log(model)
   }
 }
 

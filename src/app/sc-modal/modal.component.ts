@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,  ElementRef, OnDestroy  } from '@angular/core';
+import { Component, OnInit, Input,  ElementRef, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { modelProp } from './typings/model';
 import { ModalService } from './modal.service';
 
@@ -6,7 +6,8 @@ import { ModalService } from './modal.service';
   selector: 'sc-modal',
   moduleId: module.id.toString(),
   template: '<ng-content></ng-content>',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.css'],
+  encapsulation:ViewEncapsulation.None,
 })
 export class ModalComponent implements OnInit, OnDestroy  {
   @Input() id:string;
@@ -33,12 +34,7 @@ export class ModalComponent implements OnInit, OnDestroy  {
         // close modal on background click
         this.element.addEventListener('click', function (e: any) {
             var target = e.target;
-            // if (!target.closest('.modal-body').length) {
-            //     modal.close();
-            // }
         });
- 
-        // add self (this modal instance) to the modal service so it's accessible from controllers
         this.ms.add(this);
   }
 

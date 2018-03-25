@@ -26,7 +26,6 @@ open(id: string) {
 close(id: string) {
     var modal 
     this.modals.forEach( (item)=>{
-        console.log(id)
         if(item.id == id) modal =  item;
     });
     modal.ele.nativeElement.style.display = 'none';
