@@ -1,45 +1,117 @@
 sc-modal {
     /* modals are hidden by default */
-    display: none; 
     text-align: center;  
-    
+    position: relative;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%; 
+}
+sc-modal.default{
+   visibility: hidden;
 }
 sc-modal .modal {
-    /* modal container fixed across whole screen */
-    position: fixed;
-    top: 0  ;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* z-index must be higher than .modal-background */
     z-index: 1000;
-     
-    /* enables scrolling for tall modals */
     overflow: auto;
     background-color:#fff;  
-    
+    height:350px;
+    width:500px;
+    margin: 0 auto;
+    /*position: absolute;*/
+    position: fixed;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    border:solid 1px #ccc;
 }
 sc-modal .modal-header {
     padding: 20px;
     background: #fff;
-    /* margin exposes part of the modal background */
-    margin: 40px;
+    position: relative;
 }
 sc-modal .modal-background {
-    /* modal background fixed across whole screen */
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* semi-transparent black  */
     background-color: #000;
-    opacity: 0.75;
-     
-    /* z-index must be below .modal and above everything else  */
-    z-index: 0;
+    opacity: 0.3;
+    z-index: 900;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0;
 }
-.sc-modal body.modal-open {
+
+sc-modal body.modal-open {
     /* body overflow is hidden to hide main scrollbar when modal window is open */
     overflow: hidden;
+}
+.sc-modal-close{
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/** Modal Open **/
+.modal.modal-open {
+	-webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+  /** Modal Close **/
+
+.modal.modal-close {
+    -webkit-animation: fade-out 1s ease-out both;
+    animation: fade-out 1s ease-out both;       
+}
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

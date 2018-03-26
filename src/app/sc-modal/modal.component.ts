@@ -34,7 +34,10 @@ export class ModalComponent implements OnInit, OnDestroy  {
         // close modal on background click
         this.element.addEventListener('click', function (e: any) {
             var target = e.target;
-        });
+            if(target.className == 'modal-background'){
+              this.ms.close(this.id);
+            }
+        }.bind(this));
         this.ms.add(this);
   }
 
@@ -43,10 +46,10 @@ export class ModalComponent implements OnInit, OnDestroy  {
   }
 
   closeModal(id: string){
-      console.log(id)
-        this.ms.close(id);
+      this.ms.close(id);
   }
-  
+
+
   ngOnDestroy(){
     this.ms.remove(this.id);
     this.element.remove();

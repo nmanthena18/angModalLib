@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     
   }
   openModal(id){
-    this.modal.openModal(id)
+    this.modal.openModal(id);
   }
 
   closeModal(id){

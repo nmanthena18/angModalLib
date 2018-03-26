@@ -3,11 +3,9 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { DialgComponent } from './dialg/dialg.component';
 import { MatDialogModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScModalModule } from './sc-modal/sc-modal.module';
-import { TestDialogComponent } from './sc-modal/test-dialog/test-dialog.component';
 
 
 
@@ -15,8 +13,6 @@ import { TestDialogComponent } from './sc-modal/test-dialog/test-dialog.componen
 @NgModule({
   declarations: [
     AppComponent,
-    DialgComponent,
-    TestDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +21,6 @@ import { TestDialogComponent } from './sc-modal/test-dialog/test-dialog.componen
     ScModalModule
   ],
   entryComponents:[
-    TestDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
